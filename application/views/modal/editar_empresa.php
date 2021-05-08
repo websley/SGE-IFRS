@@ -13,61 +13,8 @@
 	
 	<input type="hidden" name="id_empresa" value="">
 	
-	<!--
-		 <div class="form-group">
-			<label >Nome Empresa</label>
-			<input name="nome" type="text" class="form-control" placeholder="">
-		  </div>
-		  <div class="form-group">
-			<label >Razão Social</label>
-			<input name="razao_social" type="text" class="form-control" placeholder="">
-		  </div>
-		  
-		  <div class="form-group">
-			<label >Email</label>
-			<input name="email" type="email" class="form-control" placeholder="">
-		  </div>
-		  
-		   <div class="form-row">
-			<div class="form-group col-md-6">
-			  <label>CNPJ</label>
-			  <input name="cnpj" type="nome" class="form-control" placeholder="">
-			</div>
-			<div class="form-group col-md-6">
-			  <label>Cidade</label>
-			  <input name="cidade" type="text" class="form-control"  placeholder="">
-			</div>
-		  </div>
-
-		  
-		  <div class="form-group">
-			<label for="inputAddress">Ramo de atividade</label>
-			<input name="ramo_atividade" type="text" class="form-control"  placeholder="">
-		  </div>
-
-		  
-		
-			<div class="form-group col-md-6">
-			  <label>Telefone</label>
-			  <input name="telefone" type="nome" class="form-control telefone" placeholder="">
-			</div>
-
-		
-
-		  <div class="form-group">
-			<label>Endereço</label>
-			<input name="endereco" type="text" class="form-control" placeholder="">
-		  </div>
-		  
-		  <div class="form-group">
-			<label>Representante Legal</label>
-			<input name="representante_legal" type="text" class="form-control" placeholder="">
-		  </div>
-		  
 	
-					  
-					-->
-					  <div class="row">
+	<div class="row">
 	  
 	  
 		<div class="col border-right border-dark">
@@ -135,24 +82,56 @@
 			<input name="endereco" type="text" class="form-control" placeholder="">
 		  </div>
 		  
-		  
-		  	<div class="form-row">
-			<div class="form-group col-md-6">
+		  <div class="form-row">
+			<div class="form-group col-md-4">
 			  <label><strong>Representante Legal</strong></label>
 			  <input name="representante_legal" type="text" class="form-control" placeholder="" >
+				<div class="invalid-feedback">
+					Campo Obrigatorio!
+				</div>
 			</div>
-			<div class="form-group col-md-6">
-			  <label><strong>Cargo</strong></label>
-			  <input name="cargo_representante" type="text" class="form-control celular"  placeholder="" >
+			<div class="form-group col-md-4">
+				<label><strong>Cargo</strong></label>
+				<input name="cargo_representante" type="text" class="form-control celular"  placeholder="" >
+				<div class="invalid-feedback">
+					Campo Obrigatorio!
+				</div>
 			</div>
+			<div class="form-group col-md-4">
+				<label><strong>CPF</strong></label>
+				<input name="representante_cpf" type="text" class="form-control celular"  placeholder="" >
+				<div class="invalid-feedback">
+					Campo Obrigatorio!
+				</div>
+			</div>
+		</div>
+
+		<div class="form-row">
+				<div class="form-group col-md-4">
+			<label><strong>RG Rep. Legal</strong></label>
+				<input name="rg_representante_legal" type="text" class="form-control rg"  placeholder="" maxlength="15" >
+				<div class="invalid-feedback">
+					Campo Obrigatorio!
+				</div>
+				
+				</div>
+				<div class="form-group col-md-4">
+				<label><strong>Orgão Expedidor</strong></label>
+				<input name="orgao_exp_representante_legal" type="text" class="form-control"  placeholder="" >
+				<div class="invalid-feedback">
+					Campo Obrigatorio!
+				</div>
+				</div>
+				<div class="form-group col-md-4">
+				<label><strong>Data de Expedição</strong></label>
+				<input name="data_exp_representante_legal" type="date" class="form-control"  placeholder="00/00/00" >
+				<div class="invalid-feedback">
+					Campo Obrigatorio!
+				</div>
+				</div>
 		  </div>
 		  
-		  <!--
-		  <div class="form-group">
-			<label><strong>Representante Legal</strong></label>
-			<input name="representante_legal" type="text" class="form-control" placeholder="">
-		  </div>
-		  -->
+	
 			  
 		</div>
 

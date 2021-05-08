@@ -117,6 +117,10 @@ class Cadastros extends CI_Controller {
 							'endereco' => $_POST['endereco'],
 							'rep_legal' => $_POST['representante_legal'],
 							'rep_cargo' => $_POST['cargo_representante'],
+							'rep_rg' => $_POST['rg_representante_legal'],
+							'rep_orgao_emissor' => $_POST['orgao_exp_representante_legal'],
+							'rep_data_expedido' => $_POST['data_exp_representante_legal'],							
+							'rep_cpf' => $_POST['cargo_representante_cpf'],
 						);
 						
 		$verifica = $this->Adm_model->verificao_empresa($_POST['razao_social'],$_POST['cnpj']);
@@ -128,15 +132,6 @@ class Cadastros extends CI_Controller {
 			}
 			else
 				$result = array('error' => 'Empresa ja é cadastrado no sistema');			
-	
-			/*
-		if (empty($_POST['nome'])) 
-			$result = array('error' => 'Não veio nada');
-		else{
-			$result = $this->Empresas_model->cadastraEmpresa($data);	
-			if($result)
-				$result = array('success' => 'Empressa cadastrada com sucesso');
-		}	*/
 
 		exit(json_encode($result));
 		
@@ -283,13 +278,8 @@ class Cadastros extends CI_Controller {
 			$result = $this->Estagios_model->editarEstagio($data);	
 			if($result)
 				$result = array('success' => 'Estagio adicionado !!');
-					
 		}	
-		
 		exit(json_encode($result));
-		
-		
-		
 	}
 	
 	function json_editar_supervisor(){
@@ -313,11 +303,6 @@ class Cadastros extends CI_Controller {
 		exit(json_encode($result));
 
 	}
-	
-	
-	
-	
-	
 }//EOF
 	
 ?>

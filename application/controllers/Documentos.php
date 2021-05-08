@@ -253,7 +253,8 @@ class Documentos extends CI_Controller {
 
 		
 	function json_get_doc(){
-
+		$result = $this->Documentos_model->get_dooc(38);
+		exit(json_decode($result));
 		if (empty($_POST['doc_id'])) 
 			$result = array('error' => 'Não veio nada');
 		else{

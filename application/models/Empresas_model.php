@@ -138,6 +138,10 @@ class Empresas_model extends CI_Model {
 							'endereco' => $d['endereco'],
 							'rep_legal' => $d['representante_legal'],
 							'rep_cargo' => $d['cargo_representante'],
+							'rep_rg' => $d['rep_rg'],
+							'rep_orgao_emissor' => $d['rep_orgao_emissor'],
+							'rep_data_expedido' => $d['rep_data_expedido'],							
+							'rep_cpf' => $d['rep_cpf'],
 					), array(
 						'id_empresa' => $d['id_empresa']
 					));

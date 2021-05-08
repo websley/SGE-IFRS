@@ -52,7 +52,11 @@ class Empresas extends CI_Controller {
 							'telefone' => $_POST['telefone'],
 							'endereco' => $_POST['endereco'],
 							'representante_legal' => $_POST['representante_legal'],
-							'cargo_representante' => $_POST['cargo_representante']
+							'cargo_representante' => $_POST['cargo_representante'],
+							'rep_rg' => $_POST['rg_representante_legal'],
+							'rep_orgao_emissor' => $_POST['orgao_exp_representante_legal'],
+							'rep_data_expedido' => $_POST['data_exp_representante_legal'],							
+							'rep_cpf' => $_POST['representante_cpf'],
 						);
 						
 		if (empty($_POST['nome'])) 
@@ -60,7 +64,7 @@ class Empresas extends CI_Controller {
 		else{
 			$result = $this->Empresas_model->editarEmpresa($data);	
 			if($result)
-				$result = array('success' => 'Professor inserido com sucesso');
+				$result = array('success' => 'Professor atualizado com sucesso');
 		}	
 		exit(json_encode($result));
 		

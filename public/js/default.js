@@ -751,6 +751,11 @@ $(document).on('click', '.btn-gerar-documentos-declaracaoExperoencia', function(
 				modal.find('input[name=representante_legal]').val(response.rep_legal);
 				modal.find('input[name=cargo_representante]').val(response.rep_cargo);
 
+				modal.find('input[name=rg_representante_legal]').val(response.rep_rg);
+				modal.find('input[name=orgao_exp_representante_legal]').val(response.rep_orgao_emissor);
+				modal.find('input[name=data_exp_representante_legal]').val(response.rep_data_expedido);
+				modal.find('input[name=cargo_representante_cpf]').val(response.rep_cpf);
+
 				}
 				
 			}, 'JSON');
@@ -1660,15 +1665,14 @@ function call_tiny_mce() {
 		
 		var modal = $("#modal-editar-documento");
 		var doc_id = $(this).attr('rel');
-		
-		$.post(baseUrl+'documentos/json_get_doc/', {doc_id : doc_id}, function(response) {
-			
+
+		$.post(baseUrl+'Documentos/json_get_doc/', {doc_id : doc_id}, (response) => {
 			modal.find('input[name=doc_id]').val(response.doc_id);
 			tinyMCE.activeEditor.setContent(response.texto);
 			modal.find('input[name=titulo]').val(response.titulo);
 			
 		}, 'JSON');
-		
+
 	});
 	
 	$(document).on('submit', '#form_editar_doc', function() {
