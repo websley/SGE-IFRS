@@ -37,10 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<?php
 		$count = 0;
 	foreach ($status as $s ) {
-		 echo  '<div class="tab-pane fade show '.(!$count ? 'active' : '').'" id="t-'.$s['id_status'].'"" role="tabpanel" aria-labelledby="pills-home-tab"> ';
-	
-
-	         echo ' <!-- DataTables Example -->
+		 echo  '<div class="tab-pane fade show '.(!$count ? 'active' : '').'" id="t-'.$s['id_status'].'"" role="tabpanel" aria-labelledby="pills-home-tab"> 
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
@@ -86,38 +83,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<td>'.$e['email'].'</td>
 							<td>'.$e['nome_empresa'].'</td>
 							<td>'.$e['nome_professor'].'</td>
-							<td>'.date('d/m/Y' ,strtotime($e['data_inicio'])).'</td>';
+							<td data-order="'. $e['data_inicio'] .'">'.
+									
+									date('d/m/Y' ,strtotime($e['data_inicio']))
+							.'</td>';
 							
 						if($s['id_status'] == 1){
 							
 							echo '<td>';
 
 								if($e['data_inicio'] != '0000-00-00'){
-									
-
-														
+																							
 									$diferenca =  strtotime('+15 days', strtotime($e['data_inicio'] )) - strtotime(date("Y/m/d"));
-									
 									$dias = floor($diferenca / (60 * 60 * 24));
-									
 									if($dias < 0)
 											echo '<font color="red" > '.date('d/m/Y', strtotime('+15 days', strtotime($e['data_inicio'] ))) .'<i class="fa fa-exclamation-triangle"></i></font> ';
 									else if($dias <= 5)
 										echo '<font color="red" > Falta '.$dias.' dias  '.date('d/m/Y', strtotime('+15 days', strtotime($e['data_inicio'] ))) .'<i class="fa fa-exclamation-triangle"></i></font> ';
 									else
-										echo 'Falta '.$dias.'  dias ' .date('d/m/Y', strtotime('+15 days', strtotime($e['data_inicio'] )));
-									
-
-									/*								
-									if($dias <= 0){
-										echo 'Inicia em '.date('d/m/Y' ,strtotime($e['data_inicio'])) ;
-									}else if($dias > 10){
-										echo '<font color="red" > '.$dias.'  dias - '.date('d/m/Y', strtotime('+15 days', strtotime($e['data_inicio'] ))) .'<i class="fa fa-exclamation-triangle"></i></font> ';
-									}else if($dias < 10){
-										echo $dias.'  dias - ' .date('d/m/Y', strtotime('+15 days', strtotime($e['data_inicio'] )));
-									}
-									
-									*/
+										echo 'Falta '.$dias.' dias ' .date('d/m/Y', strtotime('+15 days', strtotime($e['data_inicio'] )));
 									
 								}else{
 									echo '<font color="red" >  Data não Informada </font>';
@@ -129,7 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						
 				
 							
-							echo '<td>'.date('d/m/Y' ,strtotime($e['data_termino'])).'</td>';
+							echo '<td data-order="'. $e['data_termino'] .'">'.date('d/m/Y' ,strtotime($e['data_termino'])).'</td>';
 							
 							
 								if($s['id_status'] == 4){

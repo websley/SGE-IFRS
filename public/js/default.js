@@ -1913,8 +1913,10 @@ function call_tiny_mce() {
 				}
 				
 			}, 'JSON');
-			
-		
 	});
+
+	$(document).ready( function () {
+		$('#dataTable').DataTable();
+	} );
 	
 	
