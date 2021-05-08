@@ -139,79 +139,78 @@ class Documentos extends CI_Controller {
 	
 	function aplicaTags($id, $str, $data) {
 			
+		//$dados = $this->Adm_model->getDadosAluno($id);
+		//$dados = $this->Adm_model->getDadosCompromissoDeEstagio($id);
+		$dados = $this->Documentos_model->get_dados_docs($id);
+							
+		// TAG => coluna
+		$tags = array(
+			'PROFESSOR_NOME' => 'professor',
+			'PROFESSOR_EMAIL' => 'prof_email',
+			//
+			'ALUNO_NOME' => 'aluno',
+			'ALUNO_CURSO' => 'curso',
+			'ALUNO_TURMA' => 'turma',
+			'ALUNO_EMAIL' => 'email_aluno',
+			'ALUNO_CELULAR' => 'celular',
+			'ALUNO_TELEFONE' => 'telefone_aluno',
+			'ALUNO_UF' => 'uf',
+			'ALUNO_CIDADE' => 'cidade_aluno',
+			'ALUNO_CEP' => 'CEP',
+			'ALUNO_ENDERECO' => 'endereco_aluno',
+			'ALUNO_DATA_NASCIMENTO' => 'data_nascimento',
+			'ALUNO_CPF' => 'cpf',
+			'ALUNO_DATAEX' => 'data_expedicao',
+			'ALUNO_ORG' => 'orgao_expedidor',
+			'ALUNO_RG' => 'rg',
+			'ALUNO_BAIRRO' => 'bairro',
+			//
+			'EMPRESA_RAZAO' => 'razao_social',
+			'EMPRESA_NOME' => 'nome_empresa',
+			'EMPRESA_ENDERECO' => 'endereco_empresa',
+			'EMPRESA_CNPJ' => 'cnpj',
+			'EMPRESA_RAMO_ATIVIDADE' => 'ramo_atividade',
+			'EMPRESA_EMAIL' => 'email_empresa',
+			'EMPRESA_CIDADE' => 'cidade_empresa',
+			'EMPRESA_TELEFONE' => 'telefone_empressa',
+			'EMPRESA_REPRESENTANTE_LEGAL' => 'rep_legal',
+			'EMPRESA_REPRESENTANTE_CARGO' => 'rep_cargo',
+			'EMPRESA_REPRESENTANTE_CPF' => 'rep_cpf',
+			'EMPRESA_REPRESENTANTE_RG' => 'rep_rg',
+			'EMPRESA_REPRESENTANTE_DATA_EXPEDICAO' => 'rep_data_expedido',
+			'EMPRESA_REPRESENTANTE_ORGAO_EMISSOR' => 'rep_orgao_emissor',
+			//
+			'SUPER_NOME' => 'nome_super',
+			'SUPER_FORMACAO' => 'formacao',
+			'SUPER_EMAIL' => 'email_super',
+			'SUPER_TELEFONE' => 'telefone_super',
+			//
+			'HORAS_DIARIA' => 'carga_horaria_dia',
+			'HORAS_TOTAL' => 'carga_horaria',
+			'AUXILIO' => 'bolsa_aux',
 			
-					//$dados = $this->Adm_model->getDadosAluno($id);
-					//$dados = $this->Adm_model->getDadosCompromissoDeEstagio($id);
-					$dados = $this->Documentos_model->get_dados_docs($id);
-					
-					
-					
-				// TAG => coluna
-				$tags = array(
-					'PROFESSOR_NOME' => 'professor',
-					'PROFESSOR_EMAIL' => 'prof_email',
-					//
-					'ALUNO_NOME' => 'aluno',
-					'ALUNO_CURSO' => 'curso',
-					'ALUNO_TURMA' => 'turma',
-					'ALUNO_EMAIL' => 'email_aluno',
-					'ALUNO_CELULAR' => 'celular',
-					'ALUNO_TELEFONE' => 'telefone_aluno',
-					'ALUNO_UF' => 'uf',
-					'ALUNO_CIDADE' => 'cidade_aluno',
-					'ALUNO_CEP' => 'CEP',
-					'ALUNO_ENDERECO' => 'endereco_aluno',
-					'ALUNO_DATA_NASCIMENTO' => 'data_nascimento',
-					'ALUNO_CPF' => 'cpf',
-					'ALUNO_DATAEX' => 'data_expedicao',
-					'ALUNO_ORG' => 'orgao_expedidor',
-					'ALUNO_RG' => 'rg',
-					'ALUNO_BAIRRO' => 'bairro',
-					//
-					'EMPRESA_RAZAO' => 'razao_social',
-					'EMPRESA_NOME' => 'nome_empresa',
-					'EMPRESA_ENDERECO' => 'endereco_empresa',
-					'EMPRESA_CNPJ' => 'cnpj',
-					'EMPRESA_RAMO_ATIVIDADE' => 'ramo_atividade',
-					'EMPRESA_EMAIL' => 'email_empresa',
-					'EMPRESA_CIDADE' => 'cidade_empresa',
-					'EMPRESA_TELEFONE' => 'telefone_empressa',
-					'EMPRESA_REPRESENTANTE_LEGAL' => 'rep_legal',
-					'EMPRESA_REPRESENTANTE_CARGO' => 'rep_cargo',
-					//
-					'SUPER_NOME' => 'nome_super',
-					'SUPER_FORMACAO' => 'formacao',
-					'SUPER_EMAIL' => 'email_super',
-					'SUPER_TELEFONE' => 'telefone_super',
-					//
-					'HORAS_DIARIA' => 'carga_horaria_dia',
-					'HORAS_TOTAL' => 'carga_horaria',
-					'AUXILIO' => 'bolsa_aux',
-					
-				);
-				// $sexo == "Masculino" ? "Você é homem" : "Você é mulher" 
+		);
+		// $sexo == "Masculino" ? "Você é homem" : "Você é mulher" 
 				
 				
-				foreach ($tags as $tag => $col) {
-					if (isset($dados[$col])) {
-						$str = str_replace('{'.$tag.'}', $dados[$col], $str);
-					}else{
-						$str = str_replace('{'.$tag.'}', ' ', $str);
-					}
+			foreach ($tags as $tag => $col) {
+				if (isset($dados[$col])) {
+					$str = str_replace('{'.$tag.'}', $dados[$col], $str);
+				}else{
+					$str = str_replace('{'.$tag.'}', ' ', $str);
 				}
-
+			}
 					
-					if (!empty($dados['obrigatorio'])) {
-						$str = str_replace('OBRIGATORIO_NAO', '  ', $str);
-						$str = str_replace('OBRIGATORIO_SIM', ' X ', $str);
-					}else{
-						$str = str_replace('OBRIGATORIO_NAO', ' X ', $str);
-						$str = str_replace('OBRIGATORIO_SIM', '  ', $str);	
-					}
-				
-				
-						$str = str_replace('{DATA_INICIO}', date('d/m/Y' ,strtotime($dados['data_inicio'])), $str);
-						$str = str_replace('{DATA_TERMINO}', date('d/m/Y' ,strtotime($dados['data_termino'])), $str);
+			if (!empty($dados['obrigatorio'])) {
+				$str = str_replace('OBRIGATORIO_NAO', '  ', $str);
+				$str = str_replace('OBRIGATORIO_SIM', ' X ', $str);
+			}else{
+				$str = str_replace('OBRIGATORIO_NAO', ' X ', $str);
+				$str = str_replace('OBRIGATORIO_SIM', '  ', $str);	
+			}
+		
+			$str = str_replace('{DATA_INICIO}', date('d/m/Y' ,strtotime($dados['data_inicio'])), $str);
+			$str = str_replace('{DATA_TERMINO}', date('d/m/Y' ,strtotime($dados['data_termino'])), $str);
 					
 		 
 		setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
@@ -253,8 +252,7 @@ class Documentos extends CI_Controller {
 
 		
 	function json_get_doc(){
-		$result = $this->Documentos_model->get_dooc(38);
-		exit(json_decode($result));
+		
 		if (empty($_POST['doc_id'])) 
 			$result = array('error' => 'Não veio nada');
 		else{
