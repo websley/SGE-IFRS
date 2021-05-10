@@ -152,6 +152,20 @@
 					  </div>
 					</div>
 				  </div>
+				  <div class="card">
+					<div class="card-header" id="tags_convencio">
+					  <h5 class="mb-0">
+						<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#convencio" aria-expanded="false" aria-controls="data">
+						  Convenio
+						</button>
+					  </h5>
+					</div>
+					<div id="convencio" class="collapse" aria-labelledby="tags_convencio" data-parent="#accordionExample">
+					  <div class="card-body">
+					  	{NUMERO_CONVENIO}
+					  </div>
+					</div>
+				  </div>
 				  
 				  
 				</div>

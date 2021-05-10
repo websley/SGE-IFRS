@@ -151,6 +151,20 @@
 					  </div>
 					</div>
 				  </div>
+				  <div class="card">
+					<div class="card-header" id="headingThree">
+					  <h5 class="mb-0">
+						<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#data" aria-expanded="false" aria-controls="data">
+						  Convenio
+						</button>
+					  </h5>
+					</div>
+					<div id="data" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+					  <div class="card-body">
+					  	{DATA_ABREVIADA}
+					  </div>
+					</div>
+				  </div>
 				  
 				  
 				</div>

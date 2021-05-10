@@ -208,24 +208,23 @@ $('.btn').removeClass('disabled');
 
 
 
-$(document).on('click', '.btn-gerar-documentos_TermoProfessor', function() {
+// $(document).on('click', '.btn-gerar-documentos_TermoProfessor', function() {
 	
-		var modal = $("#modal-data-documento");			
+// 		var modal = $("#modal-data-documento");			
 
-		var id_aluno = $(this).attr('value');
-		var id_doc = $(this).attr('rel');
+// 		var id_aluno = $(this).attr('value');
+// 		var id_doc = $(this).attr('rel');
 	
-		modal.find('input[name=id_aluno]').val(id_aluno);
-		modal.find('input[name=id_doc]').val(id_doc);
+// 		modal.find('input[name=id_aluno]').val(id_aluno);
+// 		modal.find('input[name=id_doc]').val(id_doc);
 
-		$(".modal").modal('hide');
+// 		$(".modal").modal('hide');
 
-	});
+// 	});
 	
 	$(document).on('click', '.btn-gerar-teste', function() {
 	
 		var modal = $("#modal-data-documento");			
-
 		var id_aluno = $(this).attr('value');
 		var id_doc = $(this).attr('rel');
 	
@@ -233,136 +232,134 @@ $(document).on('click', '.btn-gerar-documentos_TermoProfessor', function() {
 		modal.find('input[name=id_doc]').val(id_doc);
 
 		$(".modal").modal('hide');
-
 	});
+
+// $(document).on('click', '.btn-gerar-documentos-termoCompromissoEstagio', function() {
+	
+// 		var modal = $("#modal-data-documento");			
+
+// 		var id_aluno = $(this).attr('value');
+// 		var id_doc = $(this).attr('rel');
+	
+// 		modal.find('input[name=id_aluno]').val(id_aluno);
+// 		modal.find('input[name=id_doc]').val(id_doc);
+
+// 		$(".modal").modal('hide');
+	
+// });
+
+// $(document).on('click', '.btn-gerar-documentos-planoAtividadeEstagio', function() {
+	
+// 		var modal = $("#modal-data-documento");			
+
+// 		var id_aluno = $(this).attr('value');
+// 		var id_doc = $(this).attr('rel');
+	
+// 		modal.find('input[name=id_aluno]').val(id_aluno);
+// 		modal.find('input[name=id_doc]').val(id_doc);
+
+// 		$(".modal").modal('hide');
 	
 
-$(document).on('click', '.btn-gerar-documentos-termoCompromissoEstagio', function() {
-	
-		var modal = $("#modal-data-documento");			
+// 	/*	var id_aluno = $(this).attr('value');
+// 		window.open(baseUrl+'Documentos/planoAtividadeEstagio?id='+id_aluno, '_blank');
+// 		alertSuccess('Arquivo gerado com sucesso!');*/
+// });
 
-		var id_aluno = $(this).attr('value');
-		var id_doc = $(this).attr('rel');
+// $(document).on('click', '.btn-gerar-documentos-confirmacaoEstagioEmpresa', function() {
 	
-		modal.find('input[name=id_aluno]').val(id_aluno);
-		modal.find('input[name=id_doc]').val(id_doc);
+// 		var modal = $("#modal-data-documento");			
 
-		$(".modal").modal('hide');
+// 		var id_aluno = $(this).attr('value');
+// 		var id_doc = $(this).attr('rel');
 	
-});
+// 		modal.find('input[name=id_aluno]').val(id_aluno);
+// 		modal.find('input[name=id_doc]').val(id_doc);
 
-$(document).on('click', '.btn-gerar-documentos-planoAtividadeEstagio', function() {
-	
-		var modal = $("#modal-data-documento");			
-
-		var id_aluno = $(this).attr('value');
-		var id_doc = $(this).attr('rel');
-	
-		modal.find('input[name=id_aluno]').val(id_aluno);
-		modal.find('input[name=id_doc]').val(id_doc);
-
-		$(".modal").modal('hide');
+// 		$(".modal").modal('hide');
 	
 
-	/*	var id_aluno = $(this).attr('value');
-		window.open(baseUrl+'Documentos/planoAtividadeEstagio?id='+id_aluno, '_blank');
-		alertSuccess('Arquivo gerado com sucesso!');*/
-});
-
-$(document).on('click', '.btn-gerar-documentos-confirmacaoEstagioEmpresa', function() {
-	
-		var modal = $("#modal-data-documento");			
-
-		var id_aluno = $(this).attr('value');
-		var id_doc = $(this).attr('rel');
-	
-		modal.find('input[name=id_aluno]').val(id_aluno);
-		modal.find('input[name=id_doc]').val(id_doc);
-
-		$(".modal").modal('hide');
-	
-
-		/*var id_aluno = $(this).attr('value');
-		window.open(baseUrl+'Documentos/confirmacaoEstagioEmpresa?id='+id_aluno, '_blank');
-		alertSuccess('Arquivo gerado com sucesso!');*/
+// 		/*var id_aluno = $(this).attr('value');
+// 		window.open(baseUrl+'Documentos/confirmacaoEstagioEmpresa?id='+id_aluno, '_blank');
+// 		alertSuccess('Arquivo gerado com sucesso!');*/
 		
-});
+// });
 
-$(document).on('click', '.btn-gerar-documentos-avaliacaoEstagioProfessor', function() {
+// $(document).on('click', '.btn-gerar-documentos-avaliacaoEstagioProfessor', function() {
 	
-		var modal = $("#modal-data-documento");			
+// 		var modal = $("#modal-data-documento");			
 
-		var id_aluno = $(this).attr('value');
-		var id_doc = $(this).attr('rel');
+// 		var id_aluno = $(this).attr('value');
+// 		var id_doc = $(this).attr('rel');
 	
-		modal.find('input[name=id_aluno]').val(id_aluno);
-		modal.find('input[name=id_doc]').val(id_doc);
+// 		modal.find('input[name=id_aluno]').val(id_aluno);
+// 		modal.find('input[name=id_doc]').val(id_doc);
 
-		$(".modal").modal('hide');
+// 		$(".modal").modal('hide');
 	
 
-		/*var id_aluno = $(this).attr('value');
-		window.open(baseUrl+'Documentos/avaliacaoEstagioProfessor?id='+id_aluno, '_blank');
-		alertSuccess('Arquivo gerado com sucesso!');*/
+// 		/*var id_aluno = $(this).attr('value');
+// 		window.open(baseUrl+'Documentos/avaliacaoEstagioProfessor?id='+id_aluno, '_blank');
+// 		alertSuccess('Arquivo gerado com sucesso!');*/
 		
-});
+// });
 
-$(document).on('click', '.btn-gerar-documentos-avaliacaoEstagioEmpresa', function() {
+// $(document).on('click', '.btn-gerar-documentos-avaliacaoEstagioEmpresa', function() {
 	
-			var modal = $("#modal-data-documento");			
+// 			var modal = $("#modal-data-documento");			
 
-		var id_aluno = $(this).attr('value');
-		var id_doc = $(this).attr('rel');
+// 		var id_aluno = $(this).attr('value');
+// 		var id_doc = $(this).attr('rel');
 	
-		modal.find('input[name=id_aluno]').val(id_aluno);
-		modal.find('input[name=id_doc]').val(id_doc);
+// 		modal.find('input[name=id_aluno]').val(id_aluno);
+// 		modal.find('input[name=id_doc]').val(id_doc);
 
-		$(".modal").modal('hide');
+// 		$(".modal").modal('hide');
 	
 
-		/*var id_aluno = $(this).attr('value');
-		window.open(baseUrl+'Documentos/avaliacaoEstagioEmpresa?id='+id_aluno, '_blank');
-		alertSuccess('Arquivo gerado com sucesso!');*/
+// 		/*var id_aluno = $(this).attr('value');
+// 		window.open(baseUrl+'Documentos/avaliacaoEstagioEmpresa?id='+id_aluno, '_blank');
+// 		alertSuccess('Arquivo gerado com sucesso!');*/
 		
-});
+// });
 
-$(document).on('click', '.btn-gerar-documentos-acompanhamentoEstagio', function() {
+// $(document).on('click', '.btn-gerar-documentos-acompanhamentoEstagio', function() {
 	
-			var modal = $("#modal-data-documento");			
+// 			var modal = $("#modal-data-documento");			
 
-		var id_aluno = $(this).attr('value');
-		var id_doc = $(this).attr('rel');
+// 		var id_aluno = $(this).attr('value');
+// 		var id_doc = $(this).attr('rel');
 	
-		modal.find('input[name=id_aluno]').val(id_aluno);
-		modal.find('input[name=id_doc]').val(id_doc);
+// 		modal.find('input[name=id_aluno]').val(id_aluno);
+// 		modal.find('input[name=id_doc]').val(id_doc);
 
-		$(".modal").modal('hide');
+// 		$(".modal").modal('hide');
 	
 
-		/*var id_aluno = $(this).attr('value');
-		window.open(baseUrl+'Documentos/acompanhamentoEstagio?id='+id_aluno, '_blank');
-		alertSuccess('Arquivo gerado com sucesso!');*/
+// 		/*var id_aluno = $(this).attr('value');
+// 		window.open(baseUrl+'Documentos/acompanhamentoEstagio?id='+id_aluno, '_blank');
+// 		alertSuccess('Arquivo gerado com sucesso!');*/
 		
-});
+// });
 
-$(document).on('click', '.btn-gerar-documentos-declaracaoExperoencia', function() {
+// $(document).on('click', '.btn-gerar-documentos-declaracaoExperoencia', function() {
 	
-			var modal = $("#modal-data-documento");			
+// 			var modal = $("#modal-data-documento");			
 
-		var id_aluno = $(this).attr('value');
-		var id_doc = $(this).attr('rel');
+// 		var id_aluno = $(this).attr('value');
+// 		var id_doc = $(this).attr('rel');
 	
-		modal.find('input[name=id_aluno]').val(id_aluno);
-		modal.find('input[name=id_doc]').val(id_doc);
+// 		modal.find('input[name=id_aluno]').val(id_aluno);
+// 		modal.find('input[name=id_doc]').val(id_doc);
 
-		$(".modal").modal('hide');
+// 		$(".modal").modal('hide');
 	
-/*
-		var id_aluno = $(this).attr('value');
-		window.open(baseUrl+'Documentos/declaracaoExperoencia?id='+id_aluno, '_blank');
-		alertSuccess('Arquivo gerado com sucesso!');
-		*/
-});
+// /*
+// 		var id_aluno = $(this).attr('value');
+// 		window.open(baseUrl+'Documentos/declaracaoExperoencia?id='+id_aluno, '_blank');
+// 		alertSuccess('Arquivo gerado com sucesso!');
+// 		*/
+// });
 
 
 	/*$(document).on('click', '.head-notas', function() {

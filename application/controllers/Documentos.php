@@ -10,18 +10,14 @@ class Documentos extends CI_Controller {
 			redirect("login");
 		}
 
-		
 		$this->load->database();
-				require_once 'application/libraries/mpdf60/mpdf.php';
-				require_once 'application/libraries/dompdf-master/lib/Cpdf.php';
-				//use Dompdf\Dompdf;
-}
+		require_once 'application/libraries/mpdf60/mpdf.php';
+		require_once 'application/libraries/dompdf-master/lib/Cpdf.php';
+	}
 
 	public function index()
 	{
-		
 		$dados_paginas['documentos'] = $this->Documentos_model->get_all_docs();
-		
 		$dados_paginas['rodapes'] = $this->Documentos_model->get_all_rodape();
 	
 		$this->load->view('default/top.php');
@@ -30,7 +26,6 @@ class Documentos extends CI_Controller {
 	
 		$dados_modal['empresas'] = $this->Empresas_model->getEmpresasID();
 
-		
 		$this->load->view('modal/adicionar_rodape.php');
 		$this->load->view('modal/editar_rodape.php');
 		$this->load->view('modal/excluir_rodape.php');
@@ -41,108 +36,59 @@ class Documentos extends CI_Controller {
 		$this->load->view('modal/cadastro_professor.php');
 		$this->load->view('modal/cadastro_empresa.php');
 		$this->load->view('modal/cadastro_supervisor.php',$dados_modal);
-		
-		//$dados_paginas['docucmentos'] = $this->Documentos_model->get_all_docs();
-		
-		
-				setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+				
+		setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 		date_default_timezone_set('America/Sao_Paulo');
-		
-
-		
-		/*
-			switch ($_POST['id_doc']) {
-		case 2:
-			$this->termoCompromissoEstagio($_POST['id_aluno'],$_POST['data']);
-			break;
-		case 1:
-			$this->termoProfessor($_POST['id_aluno'],$_POST['data']);
-			break;
-		case 3:
-			$this->planoAtividadeEstagio($_POST['id_aluno'],$_POST['data']);
-			break;
-		case 4:
-			$this->confirmacaoEstagioEmpresa($_POST['id_aluno'],$_POST['data']);
-			break;
-		case 5:
-			$this->avaliacaoEstagioProfessor($_POST['id_aluno'],$_POST['data']);
-			break;
-		case 6:
-			$this->avaliacaoEstagioEmpresa($_POST['id_aluno'],$_POST['data']);
-			break;
-		case 7:
-			$this->acompanhamentoEstagio($_POST['id_aluno'],$_POST['data']);
-			break;
-		case 8:
-			$this->declaracaoExperoencia($_POST['id_aluno'],$_POST['data']);
-			break;
-
-			}
-//utf8_encode(strftime(' %d de %B de %Y', strtotime($data)))
-*/
 	}
-	
 	
 	function visualizar(){
 
 		$html = $this->Documentos_model->get_doc($_GET['id']);	
-	
 		$mpdf=new mPDF();
 		
 		if($html['doc_id'] == (12 || 25 || 29)){
-			
-				$mpdf=new mPDF();
-					$mpdf->SetHTMLFooter('	
-					<br>
-					<p style="text-align:center; font-size: 9px;"> 
-						Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Sul – Campus Osório<br>
-						Rua Santos Dumont, 2127 - Bairro Albatroz – Osório – RS<br>
-						Fone: (51) 3601-3500   &nbsp;&nbsp;&nbsp;    Site: www.osorio.ifrs.edu.br
-					</p>
-				');
-				
+			$mpdf=new mPDF();
+				$mpdf->SetHTMLFooter('	
+				<br>
+				<p style="text-align:center; font-size: 9px;"> 
+					Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Sul – Campus Osório<br>
+					Rua Santos Dumont, 2127 - Bairro Albatroz – Osório – RS<br>
+					Fone: (51) 3601-3500   &nbsp;&nbsp;&nbsp;    Site: www.osorio.ifrs.edu.br
+				</p>
+			');				
 		}
 
-				
-			$mpdf->WriteHTML($html['texto']);
-				$mpdf->Output('arquivo','I');
-				//$mpdf->Output('arquivo','I');
+		$mpdf->WriteHTML($html['texto']);
+		$mpdf->Output('arquivo','I');
+		//$mpdf->Output('arquivo','I');
 	
 	}
 	
 	function gerarDocumento(){
 		
 		$documento = $this->Documentos_model->get_doc($_POST['id_doc']);
+		$documento = $this->aplicaTags($_POST['id_aluno'],$documento['texto'],$_POST['data'],$_POST['numero_convenio']);
 		
-		$documento = $this->aplicaTags($_POST['id_aluno'],$documento['texto'],$_POST['data']);
-		
-				if($html['doc_id'] == (12 || 25 || 29)){
-			
-				$mpdf=new mPDF();
-					$mpdf->SetHTMLFooter('	
-					<br>
-					<p style="text-align:center; font-size: 9px;"> 
-						Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Sul – Campus Osório<br>
-						Rua Santos Dumont, 2127 - Bairro Albatroz – Osório – RS<br>
-						Fone: (51) 3601-3500   &nbsp;&nbsp;&nbsp;    Site: www.osorio.ifrs.edu.br
-					</p>
-				');
-				
+		if($html['doc_id'] == (12 || 25 || 29)){
+			$mpdf=new mPDF();
+				$mpdf->SetHTMLFooter('	
+				<br>
+				<p style="text-align:center; font-size: 9px;"> 
+					Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Sul – Campus Osório<br>
+					Rua Santos Dumont, 2127 - Bairro Albatroz – Osório – RS<br>
+					Fone: (51) 3601-3500   &nbsp;&nbsp;&nbsp;    Site: www.osorio.ifrs.edu.br
+				</p>
+			');
 		}
 
-
 		$mpdf=new mPDF();
-				
 		$mpdf->WriteHTML($documento);
 		$mpdf->Output('arquivo','I');
 	}
 	
-	function aplicaTags($id, $str, $data) {
-			
-		//$dados = $this->Adm_model->getDadosAluno($id);
-		//$dados = $this->Adm_model->getDadosCompromissoDeEstagio($id);
+	function aplicaTags($id, $str, $data, $numero_convenio = null) {
+
 		$dados = $this->Documentos_model->get_dados_docs($id);
-							
 		// TAG => coluna
 		$tags = array(
 			'PROFESSOR_NOME' => 'professor',
@@ -189,28 +135,26 @@ class Documentos extends CI_Controller {
 			'HORAS_TOTAL' => 'carga_horaria',
 			'AUXILIO' => 'bolsa_aux',
 			
-		);
-		// $sexo == "Masculino" ? "Você é homem" : "Você é mulher" 
+		);				
 				
-				
-			foreach ($tags as $tag => $col) {
-				if (isset($dados[$col])) {
-					$str = str_replace('{'.$tag.'}', $dados[$col], $str);
-				}else{
-					$str = str_replace('{'.$tag.'}', ' ', $str);
-				}
-			}
-					
-			if (!empty($dados['obrigatorio'])) {
-				$str = str_replace('OBRIGATORIO_NAO', '  ', $str);
-				$str = str_replace('OBRIGATORIO_SIM', ' X ', $str);
+		foreach ($tags as $tag => $col) {
+			if (isset($dados[$col])) {
+				$str = str_replace('{'.$tag.'}', $dados[$col], $str);
 			}else{
-				$str = str_replace('OBRIGATORIO_NAO', ' X ', $str);
-				$str = str_replace('OBRIGATORIO_SIM', '  ', $str);	
+				$str = str_replace('{'.$tag.'}', ' ', $str);
 			}
-		
-			$str = str_replace('{DATA_INICIO}', date('d/m/Y' ,strtotime($dados['data_inicio'])), $str);
-			$str = str_replace('{DATA_TERMINO}', date('d/m/Y' ,strtotime($dados['data_termino'])), $str);
+		}
+				
+		if (!empty($dados['obrigatorio'])) {
+			$str = str_replace('OBRIGATORIO_NAO', '  ', $str);
+			$str = str_replace('OBRIGATORIO_SIM', ' X ', $str);
+		}else{
+			$str = str_replace('OBRIGATORIO_NAO', ' X ', $str);
+			$str = str_replace('OBRIGATORIO_SIM', '  ', $str);	
+		}
+	
+		$str = str_replace('{DATA_INICIO}', date('d/m/Y' ,strtotime($dados['data_inicio'])), $str);
+		$str = str_replace('{DATA_TERMINO}', date('d/m/Y' ,strtotime($dados['data_termino'])), $str);
 					
 		 
 		setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
@@ -219,38 +163,35 @@ class Documentos extends CI_Controller {
 		if (@!empty($data)) {
 			$str = str_replace('{DATA}', utf8_encode(strftime(' %d de %B de %Y', strtotime($data))), $str);
 			$str = str_replace('{DATA_ABREVIADA}', utf8_encode(strftime('d/m/Y', strtotime($data))), $str);
-			//$str = str_replace('{HORA_PROVA}', $e[1], $str);
+		}
+
+		if (@!empty($numero_convenio)) {
+			$str = str_replace('{NUMERO_CONVENIO}', $numero_convenio, $str);
 		}
 		
-
-
-		return $str;
-				
+		return $str;		
 	}
-		
-
-	
 	
 	function json_novo_doc(){
 		
-					$data = array(
-							'titulo' => $_POST['documento'],
-							'texto' => $_POST['texto']
-						);
+		$data = array(
+			'titulo' => $_POST['documento'],
+			'texto' => $_POST['texto']
+		);
 
-	if (empty($_POST['documento'])) 
+		if (empty($_POST['documento'])) {
 			$result = array('error' => 'Não veio nada');
-		else{
+		}else{
 			$result = $this->Documentos_model->novo_doc($data);	
+	
 			if($result)
 				$result = array('success' => 'Documento adicionado com Sucesso!!');
 		}	
-		exit(json_encode($result));
-		
+	
+		exit(json_encode($result));	
 	}
 	
 
-		
 	function json_get_doc(){
 		
 		if (empty($_POST['doc_id'])) 
@@ -264,11 +205,11 @@ class Documentos extends CI_Controller {
 	
 	function json_editar_doc(){
 		
-					$data = array(
-							'titulo' => $_POST['titulo'],
-							'texto' => $_POST['texto'],
-							'doc_id' => $_POST['doc_id']
-						);
+		$data = array(
+			'titulo' => $_POST['titulo'],
+			'texto' => $_POST['texto'],
+			'doc_id' => $_POST['doc_id']
+		);
 						
 	if (empty($_POST['titulo'])) 
 			$result = array('error' => 'ERRO!!');
@@ -308,15 +249,15 @@ class Documentos extends CI_Controller {
 	
 	function json_novo_rodape(){
 		
-					$data = array(
-							'titulo' => $_POST['documento'],
-							'texto' => $_POST['texto']
-						);
+		$data = array(
+			'titulo' => $_POST['documento'],
+			'texto' => $_POST['texto']
+		);
 						
 		var_dump($data);
 						
 	
-	if (empty($_POST['documento'])) 
+		if (empty($_POST['documento'])) 
 			$result = array('error' => 'Não veio nada');
 		else{
 			$result = $this->Documentos_model->novo_rodape($data);	
@@ -327,25 +268,24 @@ class Documentos extends CI_Controller {
 		
 	}
 	
-	
 
 	function json_editar_rodape(){
 		
-					$data = array(
-							'titulo' => $_POST['titulo'],
-							'texto' => $_POST['texto'],
-							'rodape_id' => $_POST['rodape_id']
-						);
+		$data = array(
+			'titulo' => $_POST['titulo'],
+			'texto' => $_POST['texto'],
+			'rodape_id' => $_POST['rodape_id']
+		);
 						
-	if (empty($_POST['titulo'])) 
+		if (empty($_POST['titulo'])) 
 			$result = array('error' => 'ERRO!!');
 		else{
 			$result = $this->Documentos_model->editar_rodape($data);	
 			if($result)
 				$result = array('success' => 'Rodapé editado com Sucesso!!');
 		}	
+
 		exit(json_encode($result));
-		
 	}
 
 	function json_excluir_rodape(){
@@ -373,8 +313,6 @@ class Documentos extends CI_Controller {
 		exit(json_encode($result));
 		
 	}
-	
-	
 	
 	
 	
