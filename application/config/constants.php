@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //require_once 'application/libraries/func.php';
 
 if($_SERVER['HTTP_HOST'] == 'localhost'){
-	define('sys_name', 'estagios');
+	define('sys_name', 'estagio_ifrs');
 	define('system_url', 'http://'. $_SERVER['HTTP_HOST'].'/'.sys_name);
 }else{
 	define('sys_name', $_SERVER['HTTP_HOST']);

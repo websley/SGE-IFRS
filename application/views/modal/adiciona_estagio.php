@@ -10,84 +10,6 @@
 
 	<form id="form_adiciona_estagio" onsubmit="return false;" method="POST" enctype="multipart/form-data">
 	
-				
-<!--				<div class="form-group">
-						  <label >Aluno</label>
-							<select name="aluno" class="form-control disabled" data-required="Selecione O Tipo de Contato.">
-							<?php 
-								foreach ($alunos as $a) {
-									echo '<option value="'.$a['id_aluno'].'"';
-									echo '>'.$a['nome'].'</option>';
-								}
-							?>
-							</select>
-						</div>
-						
-					<div class="form-group">
-						  <label >Professor</label>
-							<select name="professor" class="form-control disabled" data-required="Selecione O Tipo de Contato.">
-							<?php 
-								foreach ($professores as $p) {
-									if($p['qtd'] > 10){
-										echo '<option value="'.$p['id_professor'].'"';
-										echo '>'.$p['nome'].$p['qtd'].'</option>';
-									}
-								}
-							?>
-							</select>
-						</div>
-		
-		  
-						<div class="form-group">
-						  <label >Empresas</label>
-							<select name="empresa" class="form-control disabled" data-required="Selecione O Tipo de Contato.">
-							<?php 
-							
-								foreach ($empresas as $e) {
-									echo '<option value="'.$e['id_empresa'].'"';
-									echo '>'.$e['nome'].'</option>';
-									$empresa_id = $e['id_empresa'];
-								}
-							?>
-							</select>
-						</div>
-						
-						<div class="form-group">
-						  <label >Supervisor</label>
-							<select name="supervisor" class="form-control" data-required="">
-										<option value=""></option>
-							</select>
-						</div>
-						
-		   <div class="form-row">
-			<div class="form-group col-md-6">
-			  <label>Data Inicio</label>
-			  <input name="data_ini" type="date" class="form-control" placeholder="">
-			</div>
-			<div class="form-group col-md-6">
-			  <label>Data Final</label>
-			  <input name="data_fim" type="date" class="form-control"  placeholder="">
-			</div>
-		  </div>
-		  
-		  						
-		   <div class="form-row">
-			<div class="form-group col-md-6">
-			  <label>Carga Horaria</label>
-			  <input name="ch" type="text" class="form-control" placeholder="">
-			</div>
-			<div class="form-group col-md-6">
-			  <label>Turmo</label>
-			  <input name="turno" type="text" class="form-control"  placeholder="">
-			</div>
-		  </div>
-		  
-		  <div class="form-group">
-			<label >Atividade Prevista</label>
-			<input name="atv_pre" type="text" class="form-control" placeholder="">
-		  </div>
-		  --------------------------------------------------------------
-		  -->
 		  
 		  <div class="row">
 		<div class="col border-right ">
@@ -96,10 +18,8 @@
 							<select name="aluno" class="form-control disabled" data-required="Selecione O Tipo de Contato.">
 							<?php 
 								foreach ($alunos as $a) {
-									//if($a['id_status'] == 4 || $a['id_status'] == 5){
-										echo '<option value="'.$a['id_aluno'].'"';
-										echo '>'.$a['nome'].'</option>';
-									//}
+									echo '<option value="'.$a['id_aluno'].'"';
+									echo '>'.$a['nome'].'</option>';									
 								}
 							?>
 							</select>
@@ -148,16 +68,10 @@
 						  <label class="form-check-label" for="defaultCheck1">
 							Obrigatorio
 						  </label>
-						</div>	
-		  
-		  
-
-		  
-		  
+						</div>			  
 		</div>
 		<div class="col">
-		
-		
+
 		  <div class="row">
 				<div class="col">
 					<div class="form-group">
@@ -179,40 +93,21 @@
 					  </select>
 					</div>
 					
-		<div class="row">
-				 
-					<div class="col text-right">
-					<br>
-					<label> <strong>Agente de Integração</strong></label>
-					</div>			
-				<div class="col text-left">
-					 <br>					
-			<div class="form-check">
-			  <input class="form-check-input CIEE" type="radio" name="agente" id="CIEE" value="CIEE">
-			  <label class="form-check-label" for="CIEE">
-				CIEE
-			  </label>
-			</div>
-			<div class="form-check">
-			  <input class="form-check-input FDRH" type="radio" name="agente" id="FDRH" value="FDRH">
-			  <label class="form-check-label" for="FDRH">
-				FDRH
-			  </label>
-			</div>
-			</div>
 
-<br>			
-<br>			
-<br>			
-<div class="col text-center">
-		
-						</div>			
-			
-					
+		<div class="form-group">
+			<label ><strong>Agente de integração</strong></label>
+			<select name="agente" class="form-control disabled" data-required="Agente de integração.">
+				<option value=""></option>
+				<?php 
+					foreach ($agentes as $agente) {
+						echo '<option value="'.$agente['id_agente_integracao'].'"';
+						echo '>'.$agente['nome'].'</option>';
+					}
+				?>
+			</select>
 		</div>
-				  
-				</div>
-				
+				 		
+			</div>
 				<div class="col">
 					<div class="form-group">
 					  <label><strong>Data Final</strong></label>

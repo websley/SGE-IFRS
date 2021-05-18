@@ -5,10 +5,8 @@ class Professor_model extends CI_Model {
 
   function getProfessores(){
 
-	//return	$this->db->query('select * from professores')->result_array();
 	$array = $this->db->query('select *, null as qtd from professores where status = "A"')->result_array();
 
-	
 		foreach($array as &$a){
 			
 			$qtd = $this->db->query('select count(a.id_aluno) as qtd from professores as p 
@@ -21,9 +19,7 @@ class Professor_model extends CI_Model {
 		}
 	//var_dump($array);
 	
-	return $array;
-	
-	
+		return $array;
 	}
 	
 	function getAlunosProfessores(){

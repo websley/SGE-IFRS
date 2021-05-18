@@ -42,12 +42,11 @@ class Estagios_model extends CI_Model {
 		
 		$this->db->insert('estagios', $data); 
 		
-				
-				$this->db->update('aluno', array(
-						'id_status' => 1,
-					), array(
-						'id_aluno' => $data['id_aluno'],
-					));
+		$this->db->update('aluno', array(
+				'id_status' => 1,
+			), array(
+				'id_aluno' => $data['id_aluno'],
+			));
 	
 		return true;
 		

@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<br>
 
 
-<ul class="nav nav-pills nav-fill"" id="pills-tab" role="tablist">
+<ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
 
 		<?php $count = 0;
 

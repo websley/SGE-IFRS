@@ -206,21 +206,6 @@ $('.btn').removeClass('disabled');
 
 }
 
-
-
-// $(document).on('click', '.btn-gerar-documentos_TermoProfessor', function() {
-	
-// 		var modal = $("#modal-data-documento");			
-
-// 		var id_aluno = $(this).attr('value');
-// 		var id_doc = $(this).attr('rel');
-	
-// 		modal.find('input[name=id_aluno]').val(id_aluno);
-// 		modal.find('input[name=id_doc]').val(id_doc);
-
-// 		$(".modal").modal('hide');
-
-// 	});
 	
 	$(document).on('click', '.btn-gerar-teste', function() {
 	
@@ -234,182 +219,15 @@ $('.btn').removeClass('disabled');
 		$(".modal").modal('hide');
 	});
 
-// $(document).on('click', '.btn-gerar-documentos-termoCompromissoEstagio', function() {
-	
-// 		var modal = $("#modal-data-documento");			
-
-// 		var id_aluno = $(this).attr('value');
-// 		var id_doc = $(this).attr('rel');
-	
-// 		modal.find('input[name=id_aluno]').val(id_aluno);
-// 		modal.find('input[name=id_doc]').val(id_doc);
-
-// 		$(".modal").modal('hide');
-	
-// });
-
-// $(document).on('click', '.btn-gerar-documentos-planoAtividadeEstagio', function() {
-	
-// 		var modal = $("#modal-data-documento");			
-
-// 		var id_aluno = $(this).attr('value');
-// 		var id_doc = $(this).attr('rel');
-	
-// 		modal.find('input[name=id_aluno]').val(id_aluno);
-// 		modal.find('input[name=id_doc]').val(id_doc);
-
-// 		$(".modal").modal('hide');
-	
-
-// 	/*	var id_aluno = $(this).attr('value');
-// 		window.open(baseUrl+'Documentos/planoAtividadeEstagio?id='+id_aluno, '_blank');
-// 		alertSuccess('Arquivo gerado com sucesso!');*/
-// });
-
-// $(document).on('click', '.btn-gerar-documentos-confirmacaoEstagioEmpresa', function() {
-	
-// 		var modal = $("#modal-data-documento");			
-
-// 		var id_aluno = $(this).attr('value');
-// 		var id_doc = $(this).attr('rel');
-	
-// 		modal.find('input[name=id_aluno]').val(id_aluno);
-// 		modal.find('input[name=id_doc]').val(id_doc);
-
-// 		$(".modal").modal('hide');
-	
-
-// 		/*var id_aluno = $(this).attr('value');
-// 		window.open(baseUrl+'Documentos/confirmacaoEstagioEmpresa?id='+id_aluno, '_blank');
-// 		alertSuccess('Arquivo gerado com sucesso!');*/
-		
-// });
-
-// $(document).on('click', '.btn-gerar-documentos-avaliacaoEstagioProfessor', function() {
-	
-// 		var modal = $("#modal-data-documento");			
-
-// 		var id_aluno = $(this).attr('value');
-// 		var id_doc = $(this).attr('rel');
-	
-// 		modal.find('input[name=id_aluno]').val(id_aluno);
-// 		modal.find('input[name=id_doc]').val(id_doc);
-
-// 		$(".modal").modal('hide');
-	
-
-// 		/*var id_aluno = $(this).attr('value');
-// 		window.open(baseUrl+'Documentos/avaliacaoEstagioProfessor?id='+id_aluno, '_blank');
-// 		alertSuccess('Arquivo gerado com sucesso!');*/
-		
-// });
-
-// $(document).on('click', '.btn-gerar-documentos-avaliacaoEstagioEmpresa', function() {
-	
-// 			var modal = $("#modal-data-documento");			
-
-// 		var id_aluno = $(this).attr('value');
-// 		var id_doc = $(this).attr('rel');
-	
-// 		modal.find('input[name=id_aluno]').val(id_aluno);
-// 		modal.find('input[name=id_doc]').val(id_doc);
-
-// 		$(".modal").modal('hide');
-	
-
-// 		/*var id_aluno = $(this).attr('value');
-// 		window.open(baseUrl+'Documentos/avaliacaoEstagioEmpresa?id='+id_aluno, '_blank');
-// 		alertSuccess('Arquivo gerado com sucesso!');*/
-		
-// });
-
-// $(document).on('click', '.btn-gerar-documentos-acompanhamentoEstagio', function() {
-	
-// 			var modal = $("#modal-data-documento");			
-
-// 		var id_aluno = $(this).attr('value');
-// 		var id_doc = $(this).attr('rel');
-	
-// 		modal.find('input[name=id_aluno]').val(id_aluno);
-// 		modal.find('input[name=id_doc]').val(id_doc);
-
-// 		$(".modal").modal('hide');
-	
-
-// 		/*var id_aluno = $(this).attr('value');
-// 		window.open(baseUrl+'Documentos/acompanhamentoEstagio?id='+id_aluno, '_blank');
-// 		alertSuccess('Arquivo gerado com sucesso!');*/
-		
-// });
-
-// $(document).on('click', '.btn-gerar-documentos-declaracaoExperoencia', function() {
-	
-// 			var modal = $("#modal-data-documento");			
-
-// 		var id_aluno = $(this).attr('value');
-// 		var id_doc = $(this).attr('rel');
-	
-// 		modal.find('input[name=id_aluno]').val(id_aluno);
-// 		modal.find('input[name=id_doc]').val(id_doc);
-
-// 		$(".modal").modal('hide');
-	
-// /*
-// 		var id_aluno = $(this).attr('value');
-// 		window.open(baseUrl+'Documentos/declaracaoExperoencia?id='+id_aluno, '_blank');
-// 		alertSuccess('Arquivo gerado com sucesso!');
-// 		*/
-// });
-
-
-	/*$(document).on('click', '.head-notas', function() {
-	
-						img = $(this).find("span[name=seta]");
 					
-						if(img.hasClass("active")) {
-							img.html("&#9658;");
-							img.removeClass("active");
-						} else {
-							img.html("&#9660;");
-							img.addClass("active");
-						}
-						
+	$(document).on('click', '.btn-documentos-inicio', function() {
 
-						
-						$(this).next(".notas").stop().animate({
-							height: "toggle"
-						});
-						
-					});*/
-					
-			$(document).on('click', '.btn-documentos-inicio', function() {
-		
-					var modal = $("#modal-documentos-inicio");
-					var id_aluno = $(this).attr('rel');
-					//alert(id_aluno);
-					modal.find('button[name=docs]').val(id_aluno);
+			var modal = $("#modal-documentos-inicio");
+			var id_aluno = $(this).attr('rel');
+			//alert(id_aluno);
+			modal.find('button[name=docs]').val(id_aluno);
 
-			});
-			
-			/*$(document).on('click', '.btn-documentos-inicio', function() {
-		
-					var modal = $("#modal-documentos-inicio");
-					var id_aluno = $(this).attr('rel');
-					//alert(id_aluno);
-					modal.find('a[name=docs]').val(id_aluno);
-
-			});*/
-			
-			/*
-			$(document).on('click', '.btn-documentos-final', function() {
-		
-					var modal = $("#modal-documentos-final");
-					var id_aluno = $(this).attr('rel');
-					//alert(id_aluno);
-					modal.find('button[name=docs]').val(id_aluno);
-
-			});*/
-	
+	});
 	
 	// <<<<<<<<<<<<<<<<< CADASTRA ALUNO------------------------------
 	
@@ -446,27 +264,20 @@ $('.btn').removeClass('disabled');
 			
 	$(document).on('submit', '#form_cadastro_professor', function() {
 	
-
-			
-			var modal = $("#modal-cadastra-professor");
-			
-			$.post(baseUrl+'cadastros/json_cadastro_professor/', $(this).serializeArray(), function(response) {
-				
-				if (response.error != undefined) {
-					alertError(response.error);
-				}
-				else {
-					alertSuccess(response.success);
-					modal.modal('hide');
-					$('.modal-backdrop').hide();
-					document.getElementById("form_cadastro_professor").reset();
-					
-				}
-				
-			}, 'JSON');
-			
+		var modal = $("#modal-cadastra-professor");
 		
-		
+		$.post(baseUrl+'cadastros/json_cadastro_professor/', $(this).serializeArray(), function(response) {
+			if (response.error != undefined) {
+				alertError(response.error);
+			}
+			else {
+				alertSuccess(response.success);
+				modal.modal('hide');
+				$('.modal-backdrop').hide();
+				document.getElementById("form_cadastro_professor").reset();
+				
+			}
+		}, 'JSON');
 	});	
 	// --------------------- CADASTRO PROFESSOR >>>>>>>>>>>>>>>>>>>>>>>>
 	
@@ -561,14 +372,12 @@ $('.btn').removeClass('disabled');
 			
 			var modal = $("#modal-adiciona-estagio");
 			
-					/*var dataArray = $("#form_adiciona_estagio").serializeArray(),
+			/*var dataArray = $("#form_adiciona_estagio").serializeArray(),
 			dataObj = {};
 
 			$(dataArray).each(function(i, field){
-			  dataObj[field.name] = field.value;
-			  
-			  				alert(field.name+'='+field.value);
-			  
+				dataObj[field.name] = field.value;
+				alert(field.name+'='+field.value);
 			});*/
 
 			$.post(baseUrl+'cadastros/json_adiciona_estagios/', $(this).serializeArray(), function(response) {
@@ -580,7 +389,6 @@ $('.btn').removeClass('disabled');
 					alertSuccess(response.success, true);
 					$('.loading').modal('show');
 					modal.modal('hide');
-					//$('.modal-backdrop').hide();
 				}
 				
 			}, 'JSON');
@@ -673,7 +481,6 @@ $('.btn').removeClass('disabled');
 	
 	$(document).on('click', '.btn-editar-professor', function() {
 		
-
 			var modal = $("#modal-editar-professor");
 			var id_professor = $(this).attr('rel');
 			
@@ -1558,66 +1365,11 @@ $('.btn').removeClass('disabled');
 
 function call_tiny_mce() {
 	
-/*	tinymce.init({
-  selector: 'textarea#image-tools',
-  height: 500,
-  plugins: [
-    "advlist autolink lists link image charmap print preview anchor",
-    "searchreplace visualblocks code fullscreen",
-    "insertdatetime media table paste imagetools wordcount"
-  ],
-  toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-  content_css: [
-    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-    '//www.tiny.cloud/css/codepen.min.css'
-  ]
-});*/
-
-	
-	
-	/*tinymce.init({
-		selector : ".tinymce",
-		plugins : "image paste textcolor link charmap fullscreen spellchecker code",
-		height : '800px',
-		width: '70%',
-		//fontsize_formats: "3pt 8pt 10pt 12pt 14pt 18pt",
-		//font_formats: "Arial=arial,helvetica,sans-serif;Verdana=verdana,geneva;Teste=Open Sans",
-		toolbar_items_size : 'small',
-		menu : {
-
-		},
-		toolbar1:
-			"bold italic underline strikethrough | bullist numlist | outdent indent | alignleft aligncenter alignright alignjustify | link unlink | undo redo | code | "
-		,
-		toolbar2:
-			"image | styleselect | fontselect | fontsizeselect | forecolor backcolor removeformat | charmap fullscreen "
-		,
-		setup : function(ed) {
-			ed.on('keyup', function(e) {
-				$(tinyMCE.activeEditor.getElement()).val(tinyMCE.activeEditor.getContent());
-				$(tinyMCE.activeEditor.getElement()).trigger("change");
-			});
-			ed.on('change', function(e) {
-				$(tinyMCE.activeEditor.getElement()).val(tinyMCE.activeEditor.getContent());
-				$(tinyMCE.activeEditor.getElement()).trigger("change");
-			});
-		},
-
-		forced_root_block : false,
-		//language : 'pt_BR',
-		statusbar : false,
-		resize: false,
-		paste_data_images: true,
-		browser_spellcheck : true
-	});*/
-	
 	tinymce.init({
 	  selector:'.tinymce',
 	  plugins: "image,preview,importcss,table,lists",
 	  height : '600px',
 	  width: '100%',
-	  //importcss_append: true,
-	  //images_upload_url: 'public/js/upload.php',
 	  images_upload_handler: function (blobInfo, success, failure) {
 		var xhr, formData;
 
@@ -1773,70 +1525,6 @@ function call_tiny_mce() {
 		
 	});
 	
-	//---------------------------------------------------------------------------------------
-	
-	/*$(document).on('click', '.btn-visualizar-doc', function() {
-		
-		var modal = $("#modal-editar-doc");
-		//var texto_doc = $(this).attr('rel');
-		//var mensagem = $('#mensagem').val();
-		var mensagem = tinyMCE.activeEditor.getContent();
-		alert(mensagem);
-		
-	$.post(baseUrl+'documentos/visualizar/', {mensagem : mensagem} , function(response){
-
-			 window.open(baseUrl+'documentos/visualizar/');
-				/*if (response.error != undefined) {
-					alertError(response.error);
-				}
-				else {
-					alertSuccess(response.success);
-					
-						//window.open(baseUrl+'Documentos/visualizar?doc='+doc, '_blank');
-						window.open(baseUrl+'Documentos/visualizar?doc='+doc, '_blank');
-
-				}*/
-				/*
-			}, 'JSON');
-		
-
-	});*/
-		
-	/*
-	
-	$(document).on('submit', '#form_edit_info_emp', function() {
-
-		if (!$(this).find(".has-error").length) {
-			
-						/*	var dataArray = $("#form_edit_info_emp").serializeArray(),
-			dataObj = {};
-
-			$(dataArray).each(function(i, field){
-			  dataObj[field.name] = field.value;
-			  
-			  				alert(field.name+'='+field.value);
-			  
-			});*/
-			/*
-			$.post(baseUrl+'empresas/json_editar_dados_empresa/', $(this).serializeArray(), function(response) {
-
-				if (response.error != undefined) {
-					alertError(response.error);
-				}
-				else {
-					alertSuccess(response.success);
-					
-						//window.open(baseUrl+'Documentos/visualizar?doc='+doc, '_blank');
-						window.open(baseUrl+'Documentos/visualizar?doc='+doc, '_blank');
-
-				}
-				
-			}, 'JSON');
-			
-		}
-		
-	});*/
-	
 	
 	$(document).on('submit', '#form_novo_doc', function() {
 
@@ -1919,5 +1607,91 @@ function call_tiny_mce() {
 	$(document).ready( function () {
 		$('#dataTable').DataTable();
 	} );
+
+	$(document).on('submit', '#form_cadastro_agente', function() {
 	
+		var modal = $("#modal-cadastra-agente");
+		
+		$.post(baseUrl+'AgenteIntegracao/json_cadastro_agente/', $(this).serializeArray(), function(response) {
+			if (response.error != undefined) {
+				alertError(response.error);
+			}
+			else {
+				alertSuccess(response.success);
+				modal.modal('hide');
+				$('.modal-backdrop').hide();
+				document.getElementById("form_cadastro_agente").reset();
+				
+			}
+		}, 'JSON');
+	});	
+
+
+	$(document).on('click', '.btn-editar-agente', function() {
+		
+		var modal = $("#modal-editar-agente");
+		var id_agente = $(this).attr('rel');
+
+		$.post(baseUrl+'AgenteIntegracao/json_get_agente/',{id_agente : id_agente} , function(response) {
+
+			if (response.error != undefined) {
+				alertError(response.error);
+			}else {
+				modal.find('input[name=nome]').val(response.nome);
+				modal.find('input[name=id_agente]').val(id_agente);
+			}
+		}, 'JSON');
+});
+
+$(document).on('submit', '#form_editar_agente', function() {
+
+	if (!$(this).find(".has-error").length) {
+		
+		var modal = $("#modal-editar-agente");
+
+		$.post(baseUrl+'AgenteIntegracao/json_editar_agente/', $(this).serializeArray(), function(response) {
+
+			if (response.error != undefined) {
+				alertError(response.error);
+			}else {
+				alertSuccess(response.success, true);
+				modal.modal('hide');
+			}
+		}, 'JSON');
+	}
 	
+});
+
+$(document).on('submit', '#form_excluir_agente', function() {
+
+	if (!$(this).find(".has-error").length) {
+
+		var modal = $("#modal-excluir-agente");
+
+		$.post(baseUrl+'AgenteIntegracao/json_excluir_agente/', $(this).serializeArray(), function(response) {
+
+			if (response.error != undefined) {
+				alertError(response.error);
+			}else {
+				alertSuccess(response.success, true);
+				modal.modal('hide');
+			}
+		}, 'JSON');
+	}
+});
+
+$(document).on('click', '.btn-exclui-agente', function() {
+		
+	var modal = $("#modal-excluir-agente");
+	var id_agente = $(this).attr('rel');
+	
+	modal.find('input[name=id_agente]').val(id_agente);
+	
+	$.post(baseUrl+'AgenteIntegracao/json_get_agente/',{id_agente : id_agente}, function(response) {
+		if (response.error != undefined) {
+			alertError(response.error);
+		}else{
+			modal.find('span[name=nome]').text(response.nome);
+		}
+	}, 'JSON');
+});
