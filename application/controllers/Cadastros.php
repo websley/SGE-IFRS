@@ -141,20 +141,16 @@ class Cadastros extends CI_Controller {
 	}
 	
 	function json_pesquisa_supervisores(){
-			
-			//var_dump($_POST['empresa']);
 						
 		if (empty($_POST['empresa'])) 
 			$result = array('error' => 'Não veio nada');
 		else{
-			$result = $this->Empresas_model->pesquisaSupervisores($_POST['empresa']);	
+			$result = $this->Empresas_model->pesquisaSupervisores($_POST['empresa']);
 		}	
-		//var_dump($result);
-		exit(json_encode($result));
 		
+		exit(json_encode($result));
 	}
 
-	
 	//* Adiciona Estagios
 	//* Trata as informações do formulario e envia para o model fazer a inserção no bando de dados.
 	function json_adiciona_estagios(){
@@ -213,6 +209,7 @@ class Cadastros extends CI_Controller {
 			'id_professor' => $_POST['professor'],
 			'id_empresa' => $_POST['empresa'],
 			'id_supervisor' => empty($_POST['supervisor']) ? null : $_POST['supervisor'],
+			'id_agente_integracao' => empty($_POST['agente']) ? null : $_POST['agente'],
 			'carga_horaria' => empty($_POST['ch']) ? null : $_POST['ch'],
 			'carga_horaria_dia' => empty($_POST['ch_dia']) ? null : $_POST['ch_dia'],
 			'data_inicio' => $_POST['data_ini'],

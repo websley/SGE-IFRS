@@ -231,7 +231,6 @@ class Main extends CI_Controller {
 	
 	function json_get_estagio(){
 		
-		
 			if (empty($_POST['id_estagio'])) 
 				$result = array('error' => 'Não veio nada');
 			else{
@@ -239,7 +238,6 @@ class Main extends CI_Controller {
 			}	
 		
 		exit(json_encode($result));
-		
 	}
 	
 	function json_finalizar_estagio(){

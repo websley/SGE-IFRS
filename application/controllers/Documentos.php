@@ -135,7 +135,7 @@ class Documentos extends CI_Controller {
 			'HORAS_TOTAL' => 'carga_horaria',
 			'AUXILIO' => 'bolsa_aux',
 			//
-			'AGENTE_INTEGRAGAO' => 'agente_integracao',
+			'AGENTE_INTEGRACAO' => 'agente_integracao',
 		);				
 				
 		foreach ($tags as $tag => $col) {

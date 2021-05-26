@@ -342,26 +342,17 @@ $('.btn').removeClass('disabled');
 	
 		var modal = $("#modal-adiciona-estagio");
 
-			$.post(baseUrl+'cadastros/json_pesquisa_supervisores/', $(this).serializeArray(), function(response) {
-				
-				//alert('alou');
-				
+			$.post(baseUrl+'cadastros/json_pesquisa_supervisores/', $(this).serializeArray(), function(response) {				
 				if (response.error != undefined) {
 					//alertError(response.error);
-				}
-				else {
-					
+				}else {
 					var html = '<option value="">Selecione</option>';
 						$.each(response, function(key, h) {
 					html += '<option value="'+h.id_supervisor+'">'+h.nome+'</option>';
 					});
 					modal.find("select[name=supervisor]").html(html);
 					}
-			
 			}, 'JSON');
-
-	
-	
 	});
 	
 	// ADICIONA ESTAGIOS ******
@@ -390,11 +381,8 @@ $('.btn').removeClass('disabled');
 					$('.loading').modal('show');
 					modal.modal('hide');
 				}
-				
 			}, 'JSON');
-			
 		}
-		
 	});
 	
 		// ADICIONA ESTAGIOS ******
@@ -409,10 +397,7 @@ $('.btn').removeClass('disabled');
 		}, function(response) {
 
 			modal.find('.modal-body').html(response);
-			// call_data_table();
-				
 		});
-		
 	});
 
 	
@@ -424,32 +409,23 @@ $('.btn').removeClass('disabled');
 			
 			var modal = $("#modal-registrar-desistencia");
 			
-			//$.post(baseUrl+'main/json_confirmar_documentos/', $(this).serializeArray(), function(response) {
-
 			$.post(baseUrl+'main/json_registrar_desistencia/', $(this).serializeArray(), function(response) {
 
 				if (response.error != undefined) {
 					alertError(response.error);
-				}
-				else {
+				}else {
 					alertSuccess(response.success, true);
 					modal.modal('hide');
-					//$('.modal-backdrop').hide();
 				}
-				
 			}, 'JSON');
-			
 		}
-		
 	});
 	
 	
 	// Função que busca os dados que serão montados o Certificado
 	$(document).on('click', '.btn-registrar-desistencia', function() {
-		
-
+	
 			var modal = $("#modal-registrar-desistencia");
-			//var id_estagio = $(this).attr('rel');
 			var e = $(this).attr('rel').split('|');
 	
 			var id_estagio = e[0];
@@ -461,20 +437,11 @@ $('.btn').removeClass('disabled');
 			$.post(baseUrl+'Main/detalhesEstagioParaCertificado/',{id_estagio : id_estagio}, function(response) {
 				if (response.error != undefined) {
 					alertError(response.error);
+				}else {
+					modal.find('span[name=nome_aluno]').text(response.nome_aluno);
 				}
-				else {
-				//alertSuccess(response.success, true);
-				//alert(response.nome_aluno);
-				modal.find('span[name=nome_aluno]').text(response.nome_aluno);
-
-
-				}
-				
 			}, 'JSON');
-			
-	});
-	
-	
+	});	
 	// ----------------- registrar desistencia ---------------------------------------
 	
 	// ----------------- EDITAR PROFESSOR ---------------------------------------
@@ -558,7 +525,7 @@ $('.btn').removeClass('disabled');
 				modal.find('input[name=rg_representante_legal]').val(response.rep_rg);
 				modal.find('input[name=orgao_exp_representante_legal]').val(response.rep_orgao_emissor);
 				modal.find('input[name=data_exp_representante_legal]').val(response.rep_data_expedido);
-				modal.find('input[name=cargo_representante_cpf]').val(response.rep_cpf);
+				modal.find('input[name=representante_cpf]').val(response.rep_cpf);
 
 				}
 				
@@ -595,42 +562,33 @@ $('.btn').removeClass('disabled');
 	
 	$(document).on('click', '.btn-editar-aluno', function() {
 		
-
 			var modal = $("#modal-editar-aluno");
 			var id_aluno = $(this).attr('rel');
-			
-			
 			
 			$.post(baseUrl+'alunos/json_get_aluno/',{id_aluno : id_aluno} , function(response) {
 
 				if (response.error != undefined) {
 					alertError(response.error);
+				}else {
+					modal.find('input[name=nome]').val(response.nome);
+					modal.find('input[name=id_aluno]').val(id_aluno);
+					modal.find('input[name=email]').val(response.email);
+					modal.find('input[name=curso]').val(response.curso);
+					modal.find('input[name=turma]').val(response.turma);
+					modal.find('input[name=cpf]').val(response.cpf);
+					modal.find('input[name=rg]').val(response.rg);
+					modal.find('input[name=data_nascimento]').val(response.data_nascimento);
+					modal.find('input[name=orgao_expedidor]').val(response.orgao_expedidor);
+					modal.find('input[name=data_exp]').val(response.data_exp);
+					modal.find('input[name=telefone]').val(response.telefone);
+					modal.find('input[name=celular]').val(response.celular);
+					modal.find('input[name=uf]').val(response.uf);
+					modal.find('input[name=CEP]').val(response.CEP);
+					modal.find('input[name=cidade]').val(response.cidade);
+					modal.find('input[name=bairro]').val(response.bairro);
+					modal.find('input[name=endereco]').val(response.endereco);
 				}
-				else {
-					//alertSuccess(response.success, true);
-				//alert(id_aluno);
-				modal.find('input[name=nome]').val(response.nome);
-				modal.find('input[name=id_aluno]').val(id_aluno);
-				modal.find('input[name=email]').val(response.email);
-				modal.find('input[name=curso]').val(response.curso);
-				modal.find('input[name=turma]').val(response.turma);
-				modal.find('input[name=cpf]').val(response.cpf);
-				modal.find('input[name=rg]').val(response.rg);
-				modal.find('input[name=data_nascimento]').val(response.data_nascimento);
-				modal.find('input[name=orgao_expedidor]').val(response.orgao_expedidor);
-				modal.find('input[name=data_exp]').val(response.data_exp);
-				modal.find('input[name=telefone]').val(response.telefone);
-				modal.find('input[name=celular]').val(response.celular);
-				modal.find('input[name=uf]').val(response.uf);
-				modal.find('input[name=CEP]').val(response.CEP);
-				modal.find('input[name=cidade]').val(response.cidade);
-				modal.find('input[name=bairro]').val(response.bairro);
-				modal.find('input[name=endereco]').val(response.endereco);
-				}
-				
 			}, 'JSON');
-			
-		
 	});
 	
 	$(document).on('submit', '#form_editar_aluno', function() {
@@ -639,33 +597,16 @@ $('.btn').removeClass('disabled');
 			
 			var modal = $("#modal-editar-aluno");
 			
-			/*var dataArray = $("#form_editar_aluno").serializeArray(),
-			dataObj = {};
-
-			$(dataArray).each(function(i, field){
-			  dataObj[field.name] = field.value;
-			  
-			  				alert(field.name+'='+field.value);
-			  
-			});*/
-			
 			$.post(baseUrl+'alunos/json_editar_aluno/', $(this).serializeArray(), function(response) {
-
-				//alert(response);
 				
 				if (response.error != undefined) {
 					//alertError(response.error);
-				}
-				else {
+				}else {
 					alertSuccess(response.success, true);
 					modal.modal('hide');
-					//$('.modal-backdrop').hide();
 				}
-				
 			}, 'JSON');
-			
 		}
-		
 	});
 	//------------------EDITAR ALUNO------------------------------->>
 	
@@ -696,8 +637,6 @@ $('.btn').removeClass('disabled');
 
 
 	//------------------------ Confirma entrega de documentos ---------------------------------
-	
-	
 	$(document).on('submit', '#form_confirmar_documentos', function() {
 
 		if (!$(this).find(".has-error").length) {
@@ -708,54 +647,40 @@ $('.btn').removeClass('disabled');
 
 				if (response.error != undefined) {
 					alertError(response.error);
-				}
-				else {
+				}else {
 					alertSuccess(response.success, true);
 					$('.loading').modal('show');
 					modal.modal('hide');
-					//$('.modal-backdrop').hide();
 				}
-				
 			}, 'JSON');
-			
 		}
-		
 	});
 	
 	
 	// Função que busca os dados que serão montados o Certificado
 	$(document).on('click', '.btn-confirmar-documentos', function() {
 		
+		var modal = $("#modal-confirma-documentos");
+		var e = $(this).attr('rel').split('|');
 
-			var modal = $("#modal-confirma-documentos");
-			//var id_estagio = $(this).attr('rel');
-			var e = $(this).attr('rel').split('|');
-	
-			var id_estagio = e[0];
-			var id_aluno = e[1];
+		var id_estagio = e[0];
+		var id_aluno = e[1];
+		
+		modal.find('input[name=id_estagio]').val(id_estagio);
+		modal.find('input[name=id_aluno]').val(id_aluno);
+		
+		$.post(baseUrl+'Main/detalhesEstagioParaCertificado/',{id_estagio : id_estagio}, function(response) {
 			
-			//alert(id_aluno);
-			
-			modal.find('input[name=id_estagio]').val(id_estagio);
-			modal.find('input[name=id_aluno]').val(id_aluno);
-			
-			$.post(baseUrl+'Main/detalhesEstagioParaCertificado/',{id_estagio : id_estagio}, function(response) {
-				if (response.error != undefined) {
-					alertError(response.error);
-				}
-				else {
-				modal.find('span[name=nome_aluno]').text(response.nome_aluno);
+			if (response.error != undefined) {
+				alertError(response.error);
+			}else {
+			modal.find('span[name=nome_aluno]').text(response.nome_aluno);
 
-
-				}
-				
-			}, 'JSON');
-			
+			}
+		}, 'JSON');
 	});
 	
 	//------------------------ Confirma entrega de documentos >>>>>>>>>>>>>>>>>>>>>>>>>>
-	
-	
 	
 	$(document).on('change', '#form_editar_estagio select[name=empresa]', function() {
 	
@@ -763,29 +688,20 @@ $('.btn').removeClass('disabled');
 	
 			$.post(baseUrl+'cadastros/json_pesquisa_supervisores/', $(this).serializeArray(), function(response) {
 				
-				//alert('alou');
-				
 				if (response.error != undefined) {
 					//alertError(response.error);
-				}
-				else {
-					
+				}else{
 					var html = '<option value="">Selecione</option>';
 						$.each(response, function(key, h) {
-					html += '<option value="'+h.id_supervisor+'">'+h.nome+'</option>';
-					});
+							html += '<option value="'+h.id_supervisor+'">'+h.nome+'</option>';
+						});
 					modal.find("select[name=supervisor]").html(html);
-					}
-			
+				}
 			}, 'JSON');
-
-	
-	
 	});
 	
 	$(document).on('click', '.btn-editar-estagio', function() {
 		
-
 			var modal = $("#modal-editar-estagio");
 			var id_estagio = $(this).attr('rel');
 			
@@ -793,9 +709,7 @@ $('.btn').removeClass('disabled');
 
 				if (response.error != undefined) {
 					alertError(response.error);
-				}
-				else {
-				
+				}else{
 					modal.find('input[name=id_estagio]').val(response.id_estagio);
 					modal.find('input[name=nome]').val(response.nome);
 					modal.find('input[name=data_ini]').val(response.data_inicio);
@@ -806,14 +720,14 @@ $('.btn').removeClass('disabled');
 					modal.find('input[name=id_aluno]').val(response.id_aluno);
 					
 					//Radio
-					 modal.find('input[name=agente][value='+response.agente_integracao+']').prop('checked', true);
-				
-				
+					modal.find('input[name=agente][value='+response.agente_integracao+']').prop('checked', true);
+
 					//Select
 					modal.find('select[name=aluno]').val(response.id_aluno);
 					modal.find('select[name=empresa]').val(response.id_empresa);
 					modal.find('select[name=turno]').val(response.turno);
 					modal.find('select[name=professor]').val(response.id_professor);
+					modal.find('select[name=agente]').val(response.id_agente_integracao);
  
 					//Checkbox
 					modal.find("input[name=obrigatorio]").prop('checked', (response.obrigatorio == 1));
@@ -829,16 +743,9 @@ $('.btn').removeClass('disabled');
 										html += '<option value="'+h.id_supervisor+'" '+ (response.id_supervisor ==  h.id_supervisor ? 'selected' : '')+'>'+h.nome+'</option>';
 									});
 								modal.find("select[name=supervisor]").html(html);
-								
-								
-						
 						}, 'JSON');
-
 				}
-				
 			}, 'JSON');
-			
-		
 	});
 	
 	
@@ -848,14 +755,11 @@ $('.btn').removeClass('disabled');
 			
 			var modal = $("#modal-editar-estagio");
 			
-					/*var dataArray = $("#form_editar_estagio").serializeArray(),
+			/*var dataArray = $("#form_editar_estagio").serializeArray(),
 			dataObj = {};
-
 			$(dataArray).each(function(i, field){
-			  dataObj[field.name] = field.value;
-			  
-			  				alert(field.name+'='+field.value);
-			  
+			dataObj[field.name] = field.value;
+			alert(field.name+'='+field.value);
 			});*/
 
 			$.post(baseUrl+'cadastros/json_editar_estagios/', $(this).serializeArray(), function(response) {
@@ -868,11 +772,8 @@ $('.btn').removeClass('disabled');
 					modal.modal('hide');
 					//$('.modal-backdrop').hide();
 				}
-				
 			}, 'JSON');
-			
 		}
-		
 	});
 	
 	
@@ -884,7 +785,6 @@ $('.btn').removeClass('disabled');
 			
 			var modal = $("#modal-finalizar-estagio");
 			
-
 			$.post(baseUrl+'main/json_finalizar_estagio/', $(this).serializeArray(), function(response) {
 
 				if (response.error != undefined) {
@@ -894,48 +794,34 @@ $('.btn').removeClass('disabled');
 					alertSuccess(response.success, true);
 					modal.modal('hide');
 				}
-				
 			}, 'JSON');
-			
 		}
-		
 	});
 	
 	
 	$(document).on('click', '.btn-finalizar-estagio', function() {
-		
 
 			var modal = $("#modal-finalizar-estagio");
-			//var id_estagio = $(this).attr('rel');
 			var e = $(this).attr('rel').split('|');
 	
 			var id_estagio = e[0];
 			var id_aluno = e[1];
-			
-			
 			
 			modal.find('input[name=id_estagio]').val(id_estagio);
 			modal.find('input[name=id_aluno]').val(id_aluno);
 			
 			$.post(baseUrl+'Main/detalhesEstagioParaCertificado/',{id_estagio : id_estagio}, function(response) {
 				
-				
 				if (response.error != undefined) {
 					alertError(response.error);
-				}
-				else {
-					//alert(id_aluno);
-				modal.find('span[name=nome_aluno]').text(response.nome_aluno);
-
-
+				}else{
+					modal.find('span[name=nome_aluno]').text(response.nome_aluno);
 				}
 				
 			}, 'JSON');
-			
 	});
 	
-		$(document).on('submit', '#form_cadastro_empresa_usuario', function() {
-	
+	$(document).on('submit', '#form_cadastro_empresa_usuario', function() {
 	
 		if (!$(this).find(".has-error").length) {
 			
@@ -943,124 +829,77 @@ $('.btn').removeClass('disabled');
 
 				if (response.error != undefined) {
 					alertError(response.error);
-				}
-				else {
-
-					//alert(system_url+'/main/index');
-					
+				}else {
 					window.location.href = system_url+'/main/index';
-					
 				}
-				
 			}, 'JSON');
-			
 		}
-		
 	});	
 	
 	
 	$(document).on('click', '.detalhes-horas', function() {
 		
+		var modal = $("#modal-detalhes-horas");
+		var id_aluno = $(this).attr('rel');
 
-			var modal = $("#modal-detalhes-horas");
-			var id_aluno = $(this).attr('rel');
-	
-			$.post(baseUrl+'alunos/json_detalhes_horas/',{id_aluno : id_aluno}, function(response) {
+		$.post(baseUrl+'alunos/json_detalhes_horas/',{id_aluno : id_aluno}, function(response) {
+		
+			modal.find('.modal-body').html(response);
 			
-
-				modal.find('.modal-body').html(response);
-
-				
-			});
-			
+		});
 	});
 	
 	$(document).on('click', '.teste', function() {
 	
-	// $("#passo2_cad").click(function(){
-   
+		var senha = $(".senha").val();
+		var senha_confirma = $(".senhaconf").val();
 
-      var senha = $(".senha").val();
-     // var senha = $("#user_password").val();
-      var senha_confirma = $(".senhaconf").val();
-      //var senha_confirma = $("#user_confirm_password").val();
-   
-     // if(!senha || !senha_confirma){
-		  
-         if((!senha)||(senha.length<4)){
-			// alert('vish');
-            $(".senha").css('border', '2px solid red');
-            $(".senha").attr("placeholder", "Minimo de 4 caracteres!");
-           // $( ".senha" ).focus();
-            return;
-         }/*else{
-            $("#user_email").css('border', '2px solid #70e870');
-         }
-      
-         /*if(senha_confirma){
-            $("#user_confirm_password").css('border', '2px solid red');
-            return;
-         }else{
-            $("#user_email").css('border', '2px solid #70e870');
-         }*/
-      //}
+		if((!senha)||(senha.length<4)){
+			$(".senha").css('border', '2px solid red');
+			$(".senha").attr("placeholder", "Minimo de 4 caracteres!");
+			return;
+		}
 
-      if(senha !== senha_confirma){
-
-         $(".senhaConf").val("");
-         $(".senha").css('border', '2px solid red');
-         $(".senhaConf").css('border', '2px solid red');
-         $(".senhaConf").attr("placeholder", "senhas não conferem!");
-         //$(".senhaConf" ).focus();
-         return;
-      }
-   
-     // $('input[id^="user_"]').css('border', '2px solid #70e870');
-      //alert("Deu tudo certo!");
-   
+		if(senha !== senha_confirma){
+			$(".senhaConf").val("");
+			$(".senha").css('border', '2px solid red');
+			$(".senhaConf").css('border', '2px solid red');
+			$(".senhaConf").attr("placeholder", "senhas não conferem!");
+			return;
+		}   
    });
    
    //----------Atualiza sennha -------------------------
 
 	$(document).on('click', '.atualiza-senha', function() {
 		
-			var e = $(this).attr('rel').split('|');
-	
-			var id_empresa = e[0];
-			var email = e[1];
-	
-			$.post(baseUrl+'empresas/json_nova_senha/',{id_empresa : id_empresa, email : email}, function(response) {
-			
-			
-							if (response.error != undefined) {
-								alertError(response.error);
-							}
-							else {
-								alertSuccess(response.success);
+		var e = $(this).attr('rel').split('|');
 
-							}
+		var id_empresa = e[0];
+		var email = e[1];
 
-				
-			});
-			
+		$.post(baseUrl+'empresas/json_nova_senha/',{id_empresa : id_empresa, email : email}, function(response) {
+		
+			if (response.error != undefined) {
+				alertError(response.error);
+			}else{
+				alertSuccess(response.success);
+			}
+		});
 	});
 	
 	// Editar Supervisor
-	
 	$(document).on('click', '.btn-editar-supervisor', function() {
+
+		var modal = $("#modal-editar-supervisor");
+		var id_supervisor = $(this).attr('rel');
 		
+		$.post(baseUrl+'supervisores/json_get_supervisor/',{id_supervisor : id_supervisor} , function(response) {
 
-			var modal = $("#modal-editar-supervisor");
-			var id_supervisor = $(this).attr('rel');
+			if (response.error != undefined) {
+				alertError(response.error);
+			}else{
 			
-			$.post(baseUrl+'supervisores/json_get_supervisor/',{id_supervisor : id_supervisor} , function(response) {
-
-				if (response.error != undefined) {
-					alertError(response.error);
-				}
-				else {
-					//alertSuccess(response.success, true);
-				//alert(id_professor);
 				modal.find('input[name=nome]').val(response.nome);
 				modal.find('input[name=id_supervisor]').val(id_supervisor);
 				modal.find('input[name=email]').val(response.email);
@@ -1068,11 +907,8 @@ $('.btn').removeClass('disabled');
 				modal.find('input[name=formacao]').val(response.formacao);
 				modal.find('select[name=id_empresa]').val(response.id_empresa);
 
-				}
-				
-			}, 'JSON');
-			
-		
+			}
+		}, 'JSON');		
 	});
 	
 	$(document).on('submit', '#form_editar_supervisor', function() {
@@ -1324,16 +1160,6 @@ $('.btn').removeClass('disabled');
 
 		if (!$(this).find(".has-error").length) {
 			
-						/*	var dataArray = $("#form_edit_info_emp").serializeArray(),
-			dataObj = {};
-
-			$(dataArray).each(function(i, field){
-			  dataObj[field.name] = field.value;
-			  
-			  				alert(field.name+'='+field.value);
-			  
-			});*/
-			
 			$.post(baseUrl+'empresas/json_editar_dados_empresa/', $(this).serializeArray(), function(response) {
 
 				if (response.error != undefined) {
@@ -1342,11 +1168,8 @@ $('.btn').removeClass('disabled');
 				else {
 					alertSuccess(response.success, true);
 				}
-				
 			}, 'JSON');
-			
 		}
-		
 	});
 	
 	
